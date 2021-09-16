@@ -1,35 +1,28 @@
-import java.io.File
 import kotlin.system.exitProcess
 
-/**
- * check if file is correct for diff utility
- */
-fun checkFile(file: File): Boolean {
-    if (!file.isFile) {
-        System.err.println("${file.name}: No such file or directory")
-        return false
-    }
-    if (!file.canRead()) {
-        System.err.println("${file.name}: Can't read this file")
-        return false
-    }
-    return true
-}
-
 fun main(args: Array<String>) {
-    if ("--help" in args) {
-        println("Help message")
-        TODO("print help message here")
+    // try to parse arguments
+    val arguments : Arguments
+    try {
+        arguments = parseArguments(args)
     }
-    if (args.size < 2) {
+    catch (e: ArgumentsException) {
+        if (e.message.isNotEmpty())
+            System.err.println(e.message)
         System.err.println("Try 'diff --help' for more information.")
         exitProcess(1)
     }
-    val firstFileName: String = args[0]
-    val secondFileName: String = args[0]
-    val firstFile = File(firstFileName)
-    val secondFile = File(secondFileName)
-    if (!checkFile(firstFile) || !checkFile(secondFile)) {
+    catch (e : FilesException) {
+        if (e.message.isNotEmpty())
+            System.err.println(e.message)
         exitProcess(1)
     }
+
+    // print help message if necessary
+    if (arguments.help) {
+        println("Help message")
+        TODO("print help message")
+        return
+    }
+
 }
