@@ -24,5 +24,4 @@ fun main(args: Array<String>) {
         println(File("src/files/help.txt").readText())
         return
     }
-
 }
