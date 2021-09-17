@@ -21,9 +21,10 @@ class FilesException(override val message: String = "") : Exception(message)
 /**
  * Parses arguments 'args' and returns Arguments object
  * or finish program with error message if:
- * 1) there is no input or output file names in arguments
+ * 1) there is no 1st or 2nd file name in arguments
  * 2) file is not exists
  * 3) file is unreadable
+ * 4) there is extra operand in arguments
  */
 fun parseArguments(args: Array<String>): Arguments {
     val arguments = Arguments()

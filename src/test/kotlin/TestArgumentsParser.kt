@@ -1,8 +1,8 @@
 import kotlin.test.*
 
 internal class TestArgumentsParser {
-    private val name1Path: String = "src/test/files/name1.txt"
-    private val name2Path: String = "src/test/files/name2.txt"
+    private val name1Path: String = "src/test/files/simpleText1.txt"
+    private val name2Path: String = "src/test/files/simpleText2.txt"
 
     @Test
     fun testParseArgumentsNames() {
