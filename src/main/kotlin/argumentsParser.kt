@@ -60,7 +60,7 @@ fun parseArguments(args: Array<String>): Arguments {
             throw FilesException("$fileName: No such file or directory")
         }
         if (!file.canRead()) {
-            throw FilesException("$fileName: Can't read this file")
+            throw FilesException("$fileName: Permission denied")
         }
     }
     // check that both file names are correct paths to readable files
