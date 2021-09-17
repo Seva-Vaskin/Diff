@@ -1,3 +1,4 @@
+import java.io.File
 import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
@@ -20,8 +21,7 @@ fun main(args: Array<String>) {
 
     // print help message if necessary
     if (arguments.help) {
-        println("Help message")
-        TODO("print help message")
+        println(File("src/files/help.txt").readText())
         return
     }
 
