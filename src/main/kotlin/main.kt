@@ -24,4 +24,12 @@ fun main(args: Array<String>) {
         println(File("src/files/help.txt").readText())
         return
     }
+
+    // find difference between files
+    val firstList = fileToList(arguments.firstFileName)
+    val secondList = fileToList(arguments.secondFileName)
+    val difference = findDifference(firstList, secondList)
+
+    // print difference
+    printResult(difference, arguments)
 }

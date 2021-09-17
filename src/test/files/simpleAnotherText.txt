@@ -1,7 +1,7 @@
 string1
-string2
+line2
 string3
 string4
 line5
-line6
-line7
+
+string7

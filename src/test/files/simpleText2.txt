@@ -1,1 +1,7 @@
-simple same texts
+string1
+string2
+string3
+string4
+line5
+line6
+line7
