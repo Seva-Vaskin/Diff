@@ -1,0 +1,5 @@
+1st string
+2nd string
+text
+
+end of file
