@@ -30,7 +30,7 @@ fun fileToList(fileName: String): List<String> {
  */
 fun findDifference(firstList: List<String>, secondList: List<String>): List<ChangedString> {
     // find length of the largest common subsequence using dynamic programming
-    val lcsLength = MutableList(firstList.size + 1) { MutableList(secondList.size + 1) {0} }
+    val lcsLength = MutableList(firstList.size + 1) { MutableList(secondList.size + 1) { 0 } }
     for (i in 1..firstList.size) {
         for (j in 1..secondList.size) {
             lcsLength[i][j] = if (firstList[i - 1] == secondList[j - 1])
@@ -48,12 +48,10 @@ fun findDifference(firstList: List<String>, secondList: List<String>): List<Chan
             result.add(ChangedString(firstList[i - 1], Changes.UNCHANGED))
             i--
             j--
-        }
-        else if (i == 0 || j != 0 && lcsLength[i][j] == lcsLength[i][j - 1]) {
+        } else if (i == 0 || j != 0 && lcsLength[i][j] == lcsLength[i][j - 1]) {
             result.add(ChangedString(secondList[j - 1], Changes.ADDED))
             j--
-        }
-        else if (j == 0 || i != 0 && lcsLength[i][j] == lcsLength[i - 1][j]) {
+        } else if (j == 0 || i != 0 && lcsLength[i][j] == lcsLength[i - 1][j]) {
             result.add(ChangedString(firstList[i - 1], Changes.DELETED))
             i--
         }
