@@ -1,6 +1,5 @@
 string1
-line2
+string2
 string3
 string4
 line5
-string6

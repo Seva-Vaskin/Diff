@@ -5,7 +5,7 @@ import java.lang.Integer.max
  * Describes possible string changes
  */
 enum class Changes {
-    UNCHANGED, ADDED, DELETED
+    UNCHANGED, ADDED, DELETED, CHANGED
 }
 
 /**
