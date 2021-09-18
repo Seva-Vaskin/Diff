@@ -53,12 +53,11 @@ fun splitChangedStrings(changedStrings: List<ChangedString>): List<PrintingBlock
                 }
             )
         } else if (result.last().changes == it.changes) { // add string to existing block
-            if (it.changes == Changes.ADDED)
-                result.last().added.add(it.data)
-            else if (it.changes == Changes.DELETED)
-                result.last().deleted.add(it.data)
-            else
-                result.last().unchanged.add(it.data)
+            when (it.changes) {
+                Changes.ADDED -> result.last().added.add(it.data)
+                Changes.DELETED -> result.last().deleted.add(it.data)
+                else -> result.last().unchanged.add(it.data)
+            }
         } else if ((result.last().changes == Changes.DELETED) || (result.last().changes == Changes.CHANGED)
             && it.changes == Changes.ADDED
         ) { // (add string "add" to block "changed") or (convert block "deleted" to block "changed" and add string "add")
