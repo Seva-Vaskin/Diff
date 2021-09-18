@@ -6,19 +6,19 @@ internal class TestArgumentsParser {
     private val fileDoesNotExist: String = "src/test/files/fileDoesNotExist.txt"
 
     @Test
-    fun testParseArgumentsNames() {
+    fun testParseArguments_onlyNames() {
         val arguments = parseArguments(arrayOf(simpleText1, simpleText2))
         assertEquals(Arguments(simpleText1, simpleText2), arguments)
     }
 
     @Test
-    fun testParseArgumentsHelp() {
+    fun testParseArguments_help() {
         val arguments = parseArguments(arrayOf("--help"))
         assertEquals(Arguments(help = true), arguments)
     }
 
     @Test
-    fun testParseArgumentsNamesAndHelp() {
+    fun testParseArguments_namesAndHelp() {
         var arguments = parseArguments(arrayOf("--help", simpleText1, simpleText2))
         assertEquals(Arguments(simpleText1, simpleText2, true), arguments)
 
@@ -30,7 +30,7 @@ internal class TestArgumentsParser {
     }
 
     @Test
-    fun testParseArgumentsFileDoesNotExist() {
+    fun testParseArguments_fileDoesNotExist() {
         assertFails {
             parseArguments(arrayOf(fileDoesNotExist, simpleText1))
         }
