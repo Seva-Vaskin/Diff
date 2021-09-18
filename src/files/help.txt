@@ -1,5 +1,6 @@
-Usage: diff [OPTION]... FILES
+Usage: ./gradlew -q run --args="[OPTIONS] FILES"
+
 Compare FILES line by line.
 
-Mandatory arguments to long options are mandatory for short options too.
+Options:
       --help               display this help and exit
