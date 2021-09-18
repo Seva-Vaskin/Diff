@@ -37,7 +37,23 @@ internal class TestArgumentsParser {
         assertFails {
             parseArguments(arrayOf(simpleText1, fileDoesNotExist))
         }
-        assertEquals(Arguments(simpleText1, fileDoesNotExist, true),
-                    parseArguments(arrayOf(simpleText1, fileDoesNotExist, "--help")))
+        assertEquals(
+            Arguments(simpleText1, fileDoesNotExist, true),
+            parseArguments(arrayOf(simpleText1, fileDoesNotExist, "--help"))
+        )
+    }
+
+    @Test
+    fun testParseArguments_extraOperand() {
+        assertFails {
+            parseArguments(arrayOf(simpleText1, simpleText2, fileDoesNotExist))
+        }
+    }
+
+    @Test
+    fun testParseArguments_missingOperand() {
+        assertFails {
+            parseArguments(arrayOf(simpleText1))
+        }
     }
 }
