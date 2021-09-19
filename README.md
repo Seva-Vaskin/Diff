@@ -18,7 +18,30 @@ Compare two files line by line.
 * ```--help``` display help message and exit
 
 ## Output format
-* 
+For each block of changes the program prints:
+```[range of deleted strings][a/b/c][range of added strings]```
+
+```a``` stands for added, ```d``` for deleted and ```c``` for changed.
+
+Then it prints changes:
+
+```
+< deleted strings
+---
+> added strings
+```
+The less-than and greater-than signs 
+(at the beginning of lines that are added, deleted or changed)
+indicate which file the lines appear in. 
+Addition lines are added to the original file to appear in the
+new file.
+Deletion lines are deleted from the original file to be missing
+in the new file.
+
+
+By default, lines common to both files are not shown.
+Lines that have moved are shown as added at their new location
+and as deleted from their old location.
 
 ## Example of using
 * ```src/test/files/textFromWikipediaOriginal.txt``` content:
