@@ -120,8 +120,8 @@ internal class TestPrinting {
             1,2d0
             < line1
             < line2
-        """.trimIndent()
-        assertEquals(expected, stream.toString().trim())
+        """.trimIndent().replace("\r\n", "\n")
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 
     @Test
@@ -132,8 +132,8 @@ internal class TestPrinting {
             2a10,11
             > string1
             > string2
-        """.trimIndent()
-        assertEquals(expected, stream.toString().trim())
+        """.trimIndent().replace("\r\n", "\n")
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 
     @Test
@@ -141,7 +141,7 @@ internal class TestPrinting {
         val block = PrintingBlock(unchanged = mutableListOf("str1", "str2"), changes = Changes.UNCHANGED)
         block.print(2, 3)
         val expected = ""
-        assertEquals(expected, stream.toString().trim())
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 
     @Test
@@ -160,8 +160,8 @@ internal class TestPrinting {
             ---
             > line1
             > line2
-        """.trimIndent()
-        assertEquals(expected, stream.toString().trim())
+        """.trimIndent().replace("\r\n", "\n")
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 
     @Test
@@ -189,8 +189,8 @@ internal class TestPrinting {
             > k
             6d6
             < f
-        """.trimIndent()
-        assertEquals(expected, stream.toString().trim())
+        """.trimIndent().replace("\r\n", "\n")
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 
     @Test
@@ -202,7 +202,7 @@ internal class TestPrinting {
         )
         printResult(changesToPrint, Arguments())
         val expected = ""
-        assertEquals(expected, stream.toString().trim())
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 
     @Test
@@ -218,8 +218,8 @@ internal class TestPrinting {
             > c
             > d
             > e
-        """.trimIndent()
-        assertEquals(expected, stream.toString().trim())
+        """.trimIndent().replace("\r\n", "\n")
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 
     @Test
@@ -235,8 +235,8 @@ internal class TestPrinting {
             < c
             < d
             < e
-        """.trimIndent()
-        assertEquals(expected, stream.toString().trim())
+        """.trimIndent().replace("\r\n", "\n")
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 
     @Test
@@ -257,7 +257,7 @@ internal class TestPrinting {
             > c
             > d
             > e
-        """.trimIndent()
-        assertEquals(expected, stream.toString().trim())
+        """.trimIndent().replace("\r\n", "\n")
+        assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
 }
