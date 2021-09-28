@@ -32,12 +32,10 @@ fun parseArguments(args: Array<String>): Arguments {
         when (argument) {
             "--help" -> arguments.help = true
             else -> {
-                if (arguments.firstFileName.isEmpty())
-                    arguments.firstFileName = argument
-                else if (arguments.secondFileName.isEmpty())
-                    arguments.secondFileName = argument
-                else {
-                    throw ArgumentsException("Extra operand '$argument'")
+                when {
+                    arguments.firstFileName.isEmpty() -> arguments.firstFileName = argument
+                    arguments.secondFileName.isEmpty() -> arguments.secondFileName = argument
+                    else -> throw ArgumentsException("Extra operand '$argument'")
                 }
             }
         }
