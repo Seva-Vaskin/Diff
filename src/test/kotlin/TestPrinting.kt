@@ -177,7 +177,7 @@ internal class TestPrinting {
             ChangedString("e", Changes.UNCHANGED),
             ChangedString("f", Changes.DELETED)
         )
-        printResult(changesToPrint, Arguments())
+        printResult(changesToPrint)
         val expected = """
             1,2c1,2
             < a
@@ -200,7 +200,7 @@ internal class TestPrinting {
             ChangedString("d", Changes.UNCHANGED),
             ChangedString("e", Changes.UNCHANGED),
         )
-        printResult(changesToPrint, Arguments())
+        printResult(changesToPrint)
         val expected = ""
         assertEquals(expected, stream.toString().trim().replace("\r\n", "\n"))
     }
@@ -212,7 +212,7 @@ internal class TestPrinting {
             ChangedString("d", Changes.ADDED),
             ChangedString("e", Changes.ADDED),
         )
-        printResult(changesToPrint, Arguments())
+        printResult(changesToPrint)
         val expected = """
             0a1,3
             > c
@@ -229,7 +229,7 @@ internal class TestPrinting {
             ChangedString("d", Changes.DELETED),
             ChangedString("e", Changes.DELETED),
         )
-        printResult(changesToPrint, Arguments())
+        printResult(changesToPrint)
         val expected = """
             1,3d0
             < c
@@ -248,7 +248,7 @@ internal class TestPrinting {
             ChangedString("d", Changes.ADDED),
             ChangedString("e", Changes.ADDED),
         )
-        printResult(changesToPrint, Arguments())
+        printResult(changesToPrint)
         val expected = """
             1,2c1,3
             < a

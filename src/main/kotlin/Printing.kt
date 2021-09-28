@@ -80,8 +80,7 @@ fun splitChangedStrings(changedStrings: List<ChangedString>): List<PrintingBlock
  * Prints difference between files calculated into "changedStrings" using "arguments"
  * for parametrize output
  */
-fun printResult(changesToPrint: List<ChangedString>, arguments: Arguments) {
-    // TODO: add arguments dependence
+fun printResult(changesToPrint: List<ChangedString>) {
     val printingBlocks = splitChangedStrings(changesToPrint)
     var file1Line = 1
     var file2Line = 1

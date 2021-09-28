@@ -31,5 +31,5 @@ fun main(args: Array<String>) {
     val difference = findDifference(firstList, secondList)
 
     // print difference
-    printResult(difference, arguments)
+    printResult(difference)
 }
