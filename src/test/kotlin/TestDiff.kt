@@ -36,6 +36,36 @@ internal class TestDiff {
     }
 
     @Test
+    fun testFindDifference_onlyAddAction() {
+        val list1 = listOf("a", "b", "c")
+        val list2 = listOf("a", "z", "x", "b", "c")
+        val actual = findDifference(list1, list2)
+        val expected = listOf(
+            ChangedString("a", Changes.UNCHANGED),
+            ChangedString("z", Changes.ADDED),
+            ChangedString("x", Changes.ADDED),
+            ChangedString("b", Changes.UNCHANGED),
+            ChangedString("c", Changes.UNCHANGED)
+        )
+        assertEquals(expected, actual)
+    }
+
+    @Test
+    fun testFindDifference_onlyDeleteAction() {
+        val list1 = listOf("a", "b", "c", "d", "e")
+        val list2 = listOf("b", "c", "e")
+        val actual = findDifference(list1, list2)
+        val expected = listOf(
+            ChangedString("a", Changes.DELETED),
+            ChangedString("b", Changes.UNCHANGED),
+            ChangedString("c", Changes.UNCHANGED),
+            ChangedString("d", Changes.DELETED),
+            ChangedString("e", Changes.UNCHANGED)
+        )
+        assertEquals(expected, actual)
+    }
+
+    @Test
     fun testFindDifference() {
         val list1 = listOf("a", "b", "c", "d", "e", "f")
         val list2 = listOf("z", "e", "c", "d", "k", "e")
